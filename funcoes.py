@@ -53,3 +53,16 @@ def menu_inicial():
         time.sleep(1)
     print(f'{'=~' * 20}')
     return tempo, qnt_irosa, duracao_seg
+
+def relatorio_simaulcao(energia, potencia, tensao, corrente, rendimento, potencia_util, fator_potencia, potencia_aparente, potencia_reativa):
+        print(f'{'=~' * 20}')
+        print(f'Tensão ------------> {tensao}')
+        print(f'Corrente ----------> {corrente}')
+        print(f'Potencia ----------> {potencia}')
+        print(f'Energia -----------> {energia}')
+        print(f'Rendimento --------> {rendimento}')
+        print(f'Potência Útil -----> {potencia_util}')
+        print(f'Fator de Potência -> {fator_potencia}')
+        print(f'Potência Aparente -> {potencia_aparente}')
+        print(f'Potência Reativa --> {potencia_reativa}')
+        print(f'{'=~' * 20}')
