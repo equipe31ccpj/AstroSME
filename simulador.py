@@ -1,4 +1,4 @@
-from funcoes import calcular_grandezas_irosa, menu_inicial, relatorio_simaulcao
+from funcoes import calcular_grandezas_irosa, menu_inicial, relatorio_simaulcao, verificar_alertas_e_decisao
 import time
 
 def main():
@@ -12,6 +12,9 @@ def main():
 
         print(f'Simulação {cont}')
         relatorio_simaulcao(energia, potencia, tensao, corrente, rendimento, potencia_util, fator_potencia, potencia_aparente, potencia_reativa)
+
+        verificar_alertas_e_decisao(rendimento, fator_potencia, corrente)
+
     print('Fim da simulação!')
     time.sleep(1.5)
     print('Encerrando programa.')

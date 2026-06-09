@@ -17,6 +17,33 @@ def calcular_grandezas_irosa(tempo, qnt_irosa):
     potencia_reativa = math.sqrt(potencia_aparente**2 - potencia**2)
     return energia, potencia, tensao, corrente, rendimento, potencia_util, fator_potencia, potencia_aparente, potencia_reativa
 
+def verificar_alertas_e_decisao(rendimento, fator_potencia, corrente):
+    print("\n[SISTEMA DE MONITORAMENTO - DIAGNÓSTICO]")
+    alertas_ativos = False
+
+    if rendimento < 0.40: 
+        alertas_ativos = True
+        print("[ALERTA]: Rendimento dos painéis iROSA abaixo de 40%!")
+        print("Ativando motores de rotação para reenquadramento solar dos painéis.")
+        print("Entrando em Modo de Economia de Energia (Desligando laboratório de pesquisas).")
+    elif rendimento < 0.65:
+        alertas_ativos = True
+        print("[AVISO]: Rendimento moderado. Monitorando variações térmicas.")
+
+    if fator_potencia < 0.85:
+        alertas_ativos = True
+        print(f"[ALERTA]: Fator de Potência crítico ({fator_potencia:.2f})! Risco de sobrecarga reativa.")
+        print("Acionando banco de capacitores estáticos para correção do FP.")
+
+    if corrente > 100: 
+        alertas_ativos = True
+        print(f"[ALERTA]: Corrente total elevada ({corrente:.2f} A) detectada na rede principal!")
+        print("Armando disjuntores térmicos das subestações secundárias.")
+
+    if not alertas_ativos:
+        print("[STATUS]: Todos os sistemas operando dentro dos limites de segurança nominais.")
+    
+    print(f"{'-' * 40}")
 
 def menu_inicial():
     print(f'{'=~' * 20}')
