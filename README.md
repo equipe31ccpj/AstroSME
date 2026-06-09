@@ -20,6 +20,21 @@ O simulador utiliza conceitos fundamentais de engenharia elétrica e a **Lei de 
 
 ---
 
+## 🤖 Sistema de Alertas e Tomada de Decisão (Mission Control AI)
+
+O simulador conta com um módulo de diagnóstico automatizado que analisa a telemetria a cada ciclo e toma decisões preventivas para garantir a integridade da nave:
+
+| Variável | Condição | Alerta Emitido | Decisão Automatizada do Sistema |
+| :--- | :--- | :--- | :--- |
+| **Rendimento** | $< 40\%$ | `[ALERTA]` Baixo Rendimento Solar | Ativa motores de rotação para reenquadramento solar e entra em Modo de Economia (desliga laboratórios). |
+| **Rendimento** | $< 65\%$ | `[AVISO]` Rendimento Moderado | Inicia monitoramento ativo de variações térmicas. |
+| **Fator de Potência** | $< 0.85$ | `[ALERTA]` Fator de Potência Crítico | Conecta automaticamente o banco de capacitores estáticos para correção de FP. |
+| **Corrente Elétrica**| $> 100\text{ A}$ | `[ALERTA]` Corrente Total Elevada | Arma disjuntores térmicos das subestações secundárias para evitar curto-circuito. |
+
+Se todas as grandezas operarem dentro dos limiares de segurança, o sistema reporta o status `[STATUS]: Nominal`, indicando estabilidade total na rede elétrica da missão.
+
+---
+
 ## 📁 Estrutura do Projeto
 
 O repositório está organizado da seguinte forma:
